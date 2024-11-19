@@ -8,12 +8,19 @@ import random
 
 # we'll be using this string for the majority of our translations
 alphabet = "abcdefghijklmnopqrstuvwxyz"
-
 # user inputs a message and selects a key (or random), the message is then translated using the cipher
 def encode_message():
+    EOut = ""
     text = input("whats the text you want to encode?")
-    key = input("whats the key that you want to use for the cypher?")
-
+    key = int(input("whats the key that you want to use for the cypher?"))
+    for x in text:
+        if x.isupper():
+            print("NO UPPERCASE!!! For now...")
+        else:
+            o = alphabet.index(x) + key
+            k = alphabet[o]
+            EOut += k
+    print(EOut)
 # encodes a target file, similarly to encode_message, except now targeting a filename
 def encode_file():
     pass
