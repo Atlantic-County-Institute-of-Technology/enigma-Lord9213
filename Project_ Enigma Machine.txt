@@ -1,0 +1,99 @@
+﻿_            _              _          _              _   _         _          
+        /\ \         /\ \     _     /\ \       /\ \           /\_\/\_\ _    / /\        
+       /  \ \       /  \ \   /\_\   \ \ \     /  \ \         / / / / //\_\ / /  \       
+      / /\ \ \     / /\ \ \_/ / /   /\ \_\   / /\ \_\       /\ \/ \ \/ / // / /\ \      
+     / / /\ \_\   / / /\ \___/ /   / /\/_/  / / /\/_/      /  \____\__/ // / /\ \ \     
+    / /_/_ \/_/  / / /  \/____/   / / /    / / / ______   / /\/________// / /  \ \ \    
+   / /____/\    / / /    / / /   / / /    / / / /\_____\ / / /\/_// / // / /___/ /\ \   
+  / /\____\/   / / /    / / /   / / /    / / /  \/____ // / /    / / // / /_____/ /\ \  
+ / / /______  / / /    / / /___/ / /__  / / /_____/ / // / /    / / // /_________/\ \ \ 
+/ / /_______\/ / /    / / //\__\/_/___\/ / /______\/ / \/_/    / / // / /_       __\ \_\
+\/__________/\/_/     \/_/ \/_________/\/___________/          \/_/ \_\___\     /____/_/                                                                                      
+	Marking Period II Programming Project: Encoding Machine
+________________
+
+
+
+
+Minimum Requirements
+Objective: In this project, we’ll be creating an “enigma machine” that will allow us to encode and decode messages using a simple rotational cipher. Your program will be able to encrypt a message from text or file, and decrypt a file into text with the following behavior.
+
+
+  
+
+* Main Menu (4 Options)
+* 1. Encode a custom message.
+   * Have the user write a message, and choose a key for the rotation. Encode this message, then display it to the screen and give the user the option to write to a new file.
+   * Bonus: Set a default so that if the user enters nothing, choose a random key instead.
+   * Bonus Bonus: Set the default behavior of file writing to just bypass, unless the user says “y”
+  
+
+* 2. Encode a file.
+   * Similar to encoding a custom message, but read in the information from a file, and allow the user to choose a key.
+   * Bonus: Set a default so that if the user enters nothing, choose a random key instead.
+   * Afterwards. Offer to overwrite the existing file, or write to a new file.
+  
+
+* 3. Decode a file.
+   * Similar to encoding from a file, but this time you are decoding the ciphertext file.
+   * If you know the key, enter the key, else, print out all possible rotational keys.
+  
+
+  
+
+* 4. Exit
+   * Fairly straightforward. Safely exit from the program.
+
+
+________________
+
+
+Important Details
+Programming Hints:
+NOTICE: Spaces, numbers, and punctuation are IGNORED by each of these ciphers. You should only be converting ASCII alphabet characters.
+
+
+How a Rotational or “Caesar” Cipher works.
+A Caesar cipher is a kind of shift cipher, where a key is provided equal to the amount of letters shifting the alphabet. For instance, if the cipher’s ‘key’ is 3, each letter in the alphabet is shifted to the left or right by 3 letters:
+
+
+  
+
+( In this example, the key is technically -3… )
+
+
+Letters do “wrap”, so if your cipher would shift the letter “Z” to the right by 3, it’s ciphered letter would be “C”
+
+
+ROT Ciphers are basically the same type of cipher, but this is more generalized to a simple rotation. ROT13 is a common rotational cipher, where every letter is rotated to the “other half” of its letter list. 
+
+
+Your Program: Should run in a while loop that continues perpetually until a quit signal is selected. Each “loop” of your program should prompt the user for whether or not they want to Encrypt or Decrypt the input, and then prompt for:
+* An integer equal to the number of letters you are shifting your table to (positive numbers shift right, negative numbers shift left.)
+
+
+________________
+
+
+Extra Steps
+Things you can do to really push your program above and beyond…
+Vigenere Cipher Conversion
+The Vigenere cipher is almost a more complicated version of the rotational cipher. In Vigenere cipher, a plaintext key is provided, where each letter of the key corresponds to a caesar cipher for the encoded letter.
+
+
+For instance, our key is “IMPOSTERAMONGUS”, and the text is “I saw red vent by electrical.”, the ciphertext is:
+
+
+“Q epk jxh mezh oe ydmoiwutp”
+The first letter is shifted by 9 letters because of the ‘I’ in the key
+The second letter is shifted by 13 letters because of the “M” in the key
+
+
+  
+
+
+
+NOTICE: how we are counting. The letters do not shift spaces, and each letter is shifted inclusively, meaning that the letter is counted.
+
+
+NOTICE: The key does not need to be 26 letters long, nor does it have to have entirely unique characters. Your key should “loop” its cipher every time you get to the last letter in the cipher.

@@ -13,18 +13,40 @@ def encode_message():
     EOut = ""
     text = input("whats the text you want to encode?")
     key = int(input("whats the key that you want to use for the cypher?"))
-    for x in text:
-        if x.isupper():
-            print("NO UPPERCASE!!! For now...")
+    for x in text.lower():
+        if x not in alphabet:
+            EOut += x
         else:
-            o = alphabet.index(x) + key
-            k = alphabet[o]
-            EOut += k
+            if (alphabet.find(x) + key) > len(alphabet):
+                g = (int(alphabet.find(x)) - 26) + key
+                l = alphabet[g]
+                EOut += l
+            else:
+                o = alphabet.find(x) + key
+                k = alphabet[o]
+                EOut += k
     print(EOut)
 # encodes a target file, similarly to encode_message, except now targeting a filename
 def encode_file():
-    pass
-
+    EOut = ""
+    FI = input("what file do you want to encode?")
+    with open(FI) as file:
+        f = file.read()
+    key = int(input("whats the key that you want to use for the cypher?"))
+    for x in f.lower():
+        if x not in alphabet:
+            EOut += x
+        else:
+            if (alphabet.find(x) + key) > len(alphabet):
+                g = (int(alphabet.find(x)) - 26) + key
+                l = alphabet[g]
+                EOut += l
+            else:
+                o = alphabet.find(x) + key
+                k = alphabet[o]
+                EOut += k
+    print(EOut)
+    file.close()
 # decodes target file using a user-specified key. If key is unknown, a keypress should
 # call decode_unknown_key()
 def decode_file():
